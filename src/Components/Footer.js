@@ -1,15 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
 
-
-
-export default function Footer() {
-    
-  const [concluido, setConcluido] = useState(0);
-  
+export default function Footer({concluidos}) {
   return (
     <Rodape>
-      <h1>{concluido}/4 CONCLUÍDOS</h1>
+      <h1 data-test="footer">{concluidos}/8 CONCLUÍDOS</h1>
     </Rodape>
   );
 }
