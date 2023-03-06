@@ -14,6 +14,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
   const [virar, setVirar] = useState("none");
   const [resposta, setResposta] = useState("none");
   const [questaoResposta, setQuestaoResposta] = useState(undefined);
+  const [dataTesT, setDataTesT] = useState("play-btn")
 
   function concluido(concluidos){
     let NovoConcluidos = concluidos+1
@@ -22,9 +23,9 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
 
   return (
     <div data-test="flashcard">
-      <Carta frente={frente} riscado={riscado} cor={cor}>
+      <Carta frente={frente} riscado={riscado} cor={cor} dataTesT={dataTesT}>
         <h2 data-test="flashcard-text">Pergunta {indice+1}</h2>
-        <button data-test="play-btn" onClick={() => setFrente("none") || setVirar("flex")}>
+        <button data-test={dataTesT} onClick={() => setFrente("none") || setVirar("flex")}>
           <img src={imagem} />
         </button>
       </Carta>
@@ -41,7 +42,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
             <PrimeiroButton data-test="no-btn"
               onClick={() =>
                 setResposta("none")||setFrente("flex")|| setCor("#ff3030")||
-                setQuestaoResposta("errou") || setRiscado("line-through")||setImagem(icone_erro)||concluido(concluidos)
+                setQuestaoResposta("errou") || setRiscado("line-through")||setImagem(icone_erro)||concluido(concluidos)||setDataTesT("no-icon")
               }
             >
               Não lembrei
@@ -53,8 +54,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
                 setResposta("none")||setFrente("flex")||setCor("#FF922E")||
                 setQuestaoResposta("quase") ||
                 setRiscado("line-through") ||
-                setImagem(icone_quase)||concluido(concluidos)
-                
+                setImagem(icone_quase)||concluido(concluidos)||setDataTesT("partial-icon")
               }
             >
               Quase não lembrei
@@ -63,7 +63,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
           <button>
             <TerceiroButton data-test="zap-btn"
               onClick={() => setResposta("none")||setFrente("flex")||setCor("#2FBE34")||
-                setQuestaoResposta("acertou") || setRiscado("line-through")||setImagem(icone_certo)||concluido(concluidos)
+                setQuestaoResposta("acertou") || setRiscado("line-through")||setImagem(icone_certo)||concluido(concluidos)||setDataTesT("zap-icon")
               }
             >
               Zap!
