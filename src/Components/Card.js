@@ -38,7 +38,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
         <h2 data-test="flashcard-text">{card.answer}</h2>
         <div>
           <button>
-            <PrimeiroButton
+            <PrimeiroButton data-test="no-btn"
               onClick={() =>
                 setResposta("none")||setFrente("flex")|| setCor("#ff3030")||
                 setQuestaoResposta("errou") || setRiscado("line-through")||setImagem(icone_erro)||concluido(concluidos)
@@ -48,7 +48,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
             </PrimeiroButton>
           </button>
           <button>
-            <SegundoButton
+            <SegundoButton data-test="partial-btn"
               onClick={() =>
                 setResposta("none")||setFrente("flex")||setCor("#FF922E")||
                 setQuestaoResposta("quase") ||
@@ -61,7 +61,7 @@ export default function Card({indice, card, concluidos, setConcluidos}) {
             </SegundoButton>
           </button>
           <button>
-            <TerceiroButton
+            <TerceiroButton data-test="zap-btn"
               onClick={() => setResposta("none")||setFrente("flex")||setCor("#2FBE34")||
                 setQuestaoResposta("acertou") || setRiscado("line-through")||setImagem(icone_certo)||concluido(concluidos)
               }
